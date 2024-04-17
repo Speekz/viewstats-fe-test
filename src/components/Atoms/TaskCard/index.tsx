@@ -19,7 +19,7 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
             aria-describedby="completed-task"
             name="completed"
             type="checkbox"
-            className="h-4 w-4 md:h-8 md:w-8 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+            className="h-6 w-6 md:h-8 md:w-8 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
           />
         </div>
         <div className="flex flex-col col-span-3">
@@ -50,8 +50,8 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
           ))}
         </div>
         <div className="flex gap-2 justify-center items-center col-span-2">
-          <PencilSquareIcon className="text-white" />
-          <TrashIcon className="text-white" />
+          <PencilSquareIcon className="text-white h-8" />
+          <TrashIcon className="text-white h-8" />
         </div>
       </div>
     </div>
