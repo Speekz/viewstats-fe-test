@@ -9,8 +9,12 @@ Using your skills as a full stack developer, please create a consumer-facing ful
 - Login or signup.
 - Start managing your to-do list.
 
-## Running Tests
+## End goal of app
+
+![TaskList diagram](/public/assets/Untitled-2024-02-21-1119.png)
+
+## Running the app
 
 ```bash
-npm test
+npm start
 ```
