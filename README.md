@@ -11,11 +11,11 @@ Using your skills as a full stack developer, please create a consumer-facing ful
 
 ## TaskList diagram of features
 
-![TaskList diagram](/public/assets/Untitled-2024-02-21-1119.png)
+![TaskList diagram](/public/assets/concept.png)
 
 ## Schema diagram
 
-![Tasklist schema diagram](/public/assets/Screenshot%202024-04-17%20071746.png)
+![Tasklist schema diagram](/public/assets/schema.png)
 
 ## Running the app
 
