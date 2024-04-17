@@ -1,3 +1,5 @@
+import { ETaskPriority } from "src/components/Atoms/StatsCard/models/StatsCard.interface";
+
 export const dashboardStats = [
   {
     name: "Tasks by priority",
@@ -6,17 +8,17 @@ export const dashboardStats = [
       {
         id: 1,
         title: "Take the dog out",
-        priority: "LOW",
+        priority: ETaskPriority.Low,
       },
       {
         id: 2,
         title: "Do homework",
-        priority: "HIGH",
+        priority: ETaskPriority.High,
       },
       {
         id: 3,
         title: "Play VideoGames",
-        priority: "MEDIUM",
+        priority: ETaskPriority.Medium,
       },
     ],
   },

@@ -40,20 +40,21 @@ const StatsCards: FC<StatsCardProps> = ({ item }) => {
         {item.name}
       </dt>
       {parseValues().map((data) => (
-        <>
-          <dd className="mt-1 font-semibold tracking-tight text-gray-400 cursor-pointer flex flex-row justify-between items-center hover:underline hover:decoration-solid ">
-            <label className="text-xl">{data.title}</label>
-            <label
-              className={classNames({
-                "text-red-400": data.priority === ETaskPriority.High,
-                "text-orange-400": data.priority === ETaskPriority.Medium,
-                "text-blue-400": data.priority === ETaskPriority.Low,
-              })}
-            >
-              {data.priority}
-            </label>
-          </dd>
-        </>
+        <dd
+          key={data.title}
+          className="mt-1 font-semibold tracking-tight text-gray-400 cursor-pointer flex flex-row justify-between items-center hover:underline hover:decoration-solid "
+        >
+          <label className="text-xl">{data.title}</label>
+          <label
+            className={classNames({
+              "text-red-400": data.priority === ETaskPriority.High,
+              "text-orange-400": data.priority === ETaskPriority.Medium,
+              "text-blue-400": data.priority === ETaskPriority.Low,
+            })}
+          >
+            {data.priority}
+          </label>
+        </dd>
       ))}
     </div>
   );
