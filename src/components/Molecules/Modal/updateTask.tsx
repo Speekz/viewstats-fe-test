@@ -1,25 +1,26 @@
 "use client";
 
-import { Fragment, useContext, useRef, useState } from "react";
+import { Fragment, useContext, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModalContext } from "src/hooks/ModalContext";
 
 const UpdateTaskModal = () => {
-  const { showCreateTask, setShowCreateTask } = useContext(ModalContext);
+  const { showUpdateTask, setShowUpdateTask, taskDetails } =
+    useContext(ModalContext);
 
-  const handleCreateTask = () => {
-    setShowCreateTask(false);
+  const handleUpdateTask = () => {
+    setShowUpdateTask(false);
   };
 
   const cancelButtonRef = useRef(null);
 
   return (
-    <Transition.Root show={showCreateTask} as={Fragment}>
+    <Transition.Root show={showUpdateTask} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={setShowCreateTask}
+        onClose={setShowUpdateTask}
       >
         <Transition.Child
           as={Fragment}
@@ -51,7 +52,7 @@ const UpdateTaskModal = () => {
                       as="h3"
                       className="text-base font-semibold leading-6 text-white"
                     >
-                      Create Task
+                      Update Task
                     </Dialog.Title>
                     <div className="mt-2">
                       <div>
@@ -66,6 +67,7 @@ const UpdateTaskModal = () => {
                             id="task"
                             name="task"
                             type="text"
+                            value={taskDetails.title}
                             required
                             className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                           />
@@ -78,14 +80,14 @@ const UpdateTaskModal = () => {
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2"
-                    onClick={handleCreateTask}
+                    onClick={handleUpdateTask}
                   >
-                    Create
+                    Update
                   </button>
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-800 sm:col-start-1 sm:mt-0"
-                    onClick={() => setShowCreateTask(false)}
+                    onClick={() => setShowUpdateTask(false)}
                     ref={cancelButtonRef}
                   >
                     Cancel

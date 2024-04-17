@@ -20,12 +20,13 @@ interface TaskCardProps {
  */
 
 const TaskCard: FC<TaskCardProps> = ({ task }) => {
-  const {
-    showDeleteTask,
-    setShowDeleteTask,
-    showCreateTask,
-    setShowCreateTask,
-  } = useContext(ModalContext);
+  const { setShowDeleteTask, setShowUpdateTask, setTaskDetails } =
+    useContext(ModalContext);
+
+  const handleUpdateTask = () => {
+    setTaskDetails(task);
+    setShowUpdateTask(true);
+  };
 
   return (
     <div className="overflow-hidden w-4/5 rounded-lg bg-gray-800 px-4 py-5 shadow sm:p-6">
@@ -67,7 +68,7 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
           ))}
         </div>
         <div className="flex gap-2 justify-center items-center col-span-2">
-          <div className="cursor-pointer" onClick={() => {}}>
+          <div className="cursor-pointer" onClick={handleUpdateTask}>
             <PencilSquareIcon className="text-white h-8" />
           </div>
           <div
