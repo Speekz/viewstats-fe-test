@@ -13,9 +13,9 @@ interface ChipProps {
 
 const Chip: FC<ChipProps> = ({ text }) => {
   return (
-    <div className="flex justify-center items-center bg-lime-200 py-1 px-2 rounded-xl">
+    <span className="inline-flex items-center rounded-md bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-400 ring-1 ring-inset ring-gray-400/20">
       {text}
-    </div>
+    </span>
   );
 };
 
