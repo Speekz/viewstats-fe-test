@@ -1,6 +1,7 @@
 "use client";
 
-import { FC, Fragment, PropsWithChildren, useState } from "react";
+import { FC, Fragment, PropsWithChildren, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
@@ -13,6 +14,8 @@ interface ApplicationShellProps extends PropsWithChildren {
 
 const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const pathname = usePathname();
 
   return (
     <>
@@ -86,7 +89,7 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
                                 <Link
                                   href={item.href}
                                   className={classNames(
-                                    item.current
+                                    item.href === pathname
                                       ? "bg-gray-800 text-white"
                                       : "text-gray-400 hover:text-white hover:bg-gray-800",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -131,7 +134,7 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
                         <Link
                           href={item.href}
                           className={classNames(
-                            item.current
+                            item.href === pathname
                               ? "bg-gray-800 text-white"
                               : "text-gray-400 hover:text-white hover:bg-gray-800",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"

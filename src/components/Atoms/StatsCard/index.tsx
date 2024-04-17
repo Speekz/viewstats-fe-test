@@ -7,6 +7,13 @@ interface StatsCardProps {
   item: IStatsCard;
 }
 
+/**
+ * Simple cards to display specific statistics about your tasks
+ *
+ * @param {IStatsCard} item The data list to be rendered into the Stats Card
+ * @returns A StatsCard
+ */
+
 const StatsCards: FC<StatsCardProps> = ({ item }) => {
   const parseValues = () => {
     if (item.type === "tasks:priority") {

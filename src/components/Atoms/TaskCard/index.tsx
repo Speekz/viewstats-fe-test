@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC } from "react";
 import type { ITaskCard } from "./models/TaksCard.interface";
 import { ETaskPriority } from "../StatsCard/models/StatsCard.interface";
@@ -7,11 +9,16 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 interface TaskCardProps {
   task: ITaskCard;
-  onDelete: () => void;
-  onUpdate: () => void;
 }
 
-const TaskCard: FC<TaskCardProps> = ({ task, onDelete, onUpdate }) => {
+/**
+ * A single task card
+ *
+ * @param {ITaskCard} task The single task to be rendered
+ * @returns
+ */
+
+const TaskCard: FC<TaskCardProps> = ({ task }) => {
   return (
     <div className="overflow-hidden w-4/5 rounded-lg bg-gray-800 px-4 py-5 shadow sm:p-6">
       <div className="grid grid-cols-9">
@@ -52,10 +59,10 @@ const TaskCard: FC<TaskCardProps> = ({ task, onDelete, onUpdate }) => {
           ))}
         </div>
         <div className="flex gap-2 justify-center items-center col-span-2">
-          <div className="cursor-pointer" onClick={onUpdate}>
+          <div className="cursor-pointer" onClick={() => {}}>
             <PencilSquareIcon className="text-white h-8" />
           </div>
-          <div className="cursor-pointer" onClick={onDelete}>
+          <div className="cursor-pointer" onClick={() => {}}>
             <TrashIcon className="text-white h-8" />
           </div>
         </div>
