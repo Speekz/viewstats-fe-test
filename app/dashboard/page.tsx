@@ -1,5 +1,7 @@
 import React from "react";
 import ApplicationShell from "src/components/templates/ApplicationShell";
+import { dashboardStats } from "../../src/lib/tests";
+import StatsCards from "src/components/Atoms/StatsCard";
 
 export const metadata = {
   title: "Dashboard",
@@ -8,9 +10,24 @@ export const metadata = {
 const Dashboard = () => {
   return (
     <ApplicationShell>
-      <label>hi</label>
+      <Example />
     </ApplicationShell>
   );
 };
 
 export default Dashboard;
+
+export function Example() {
+  return (
+    <div>
+      <h3 className="text-base font-semibold leading-6 text-gray-900">
+        Last 30 days
+      </h3>
+      <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        {dashboardStats.map((item) => (
+          <StatsCards item={item} />
+        ))}
+      </dl>
+    </div>
+  );
+}
