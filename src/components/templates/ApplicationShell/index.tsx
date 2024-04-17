@@ -2,21 +2,10 @@
 
 import { FC, Fragment, PropsWithChildren, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  Bars3Icon,
-  RectangleStackIcon,
-  HomeIcon,
-  TagIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
-
-const navigation = [
-  { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
-  { name: "Tasks", href: "/tasks", icon: RectangleStackIcon, current: false },
-  { name: "Tags", href: "/tags", icon: TagIcon, current: false },
-];
+import { navigation } from "./models/ApplicationShell.constants";
 
 const ApplicationShell: FC<PropsWithChildren> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
