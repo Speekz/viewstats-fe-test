@@ -1,3 +1,4 @@
+import { login, signup } from "app/login/action";
 import React from "react";
 
 const Login = () => {
@@ -39,14 +40,14 @@ const Login = () => {
                 >
                   Password
                 </label>
-                <div className="text-sm">
+                {/* <div className="text-sm">
                   <a
                     href="#"
                     className="font-semibold text-indigo-400 hover:text-indigo-300"
                   >
                     Forgot password?
                   </a>
-                </div>
+                </div> */}
               </div>
               <div className="mt-2">
                 <input
@@ -60,12 +61,19 @@ const Login = () => {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-row gap-4">
               <button
-                type="submit"
+                formAction={login}
                 className="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                 Sign in
+              </button>
+              <button
+                formAction={signup}
+                className="flex w-full justify-center rounded-md bg-gray-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white 
+                shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-800 hover:bg-gray-800hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                Register
               </button>
             </div>
           </form>

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, Fragment, PropsWithChildren, useEffect, useState } from "react";
+import { FC, Fragment, PropsWithChildren, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -161,7 +161,7 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
                   </li>
 
                   <li className="-mx-6 mt-auto">
-                    <a
+                    <Link
                       href="#"
                       className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
                     >
@@ -172,7 +172,16 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
                       />
                       <span className="sr-only">Your profile</span>
                       <span aria-hidden="true">Tom Cook</span>
-                    </a>
+                    </Link>
+                    <form
+                      action="/auth/signout"
+                      method="post"
+                      className="flex justify-center items-center pb-4"
+                    >
+                      <button className="text-white" type="submit">
+                        Sign out
+                      </button>
+                    </form>
                   </li>
                 </ul>
               </nav>
@@ -191,14 +200,19 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
             <div className="flex-1 text-sm font-semibold leading-6 text-white">
               {title}
             </div>
-            <a href="#">
+            <Link href="#">
               <span className="sr-only">Your profile</span>
               <img
                 className="h-8 w-8 rounded-full bg-gray-800"
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt=""
               />
-            </a>
+            </Link>
+            <form action="/auth/signout" method="post">
+              <button className="text-white" type="submit">
+                Sign out
+              </button>
+            </form>
           </div>
 
           <main className="py-10 lg:pl-72">
