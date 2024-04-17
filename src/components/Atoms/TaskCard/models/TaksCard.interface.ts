@@ -6,5 +6,10 @@ export interface ITaskCard {
   description: string;
   priority: ETaskPriority;
   dueDate: number;
-  tags: number[];
+  tags: ITaskTag[];
+}
+
+export interface ITaskTag {
+  id: number;
+  title: string;
 }
