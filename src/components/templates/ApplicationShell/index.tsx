@@ -7,6 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
 import { navigation } from "./models/ApplicationShell.constants";
+import Modal from "../../Atoms/Modal/deleteTask";
 
 interface ApplicationShellProps extends PropsWithChildren {
   title: string;
@@ -194,6 +195,7 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
 
         <main className="py-10 lg:pl-72">
           <div className="px-4 sm:px-6 lg:px-8">{children}</div>
+          <Modal />
         </main>
       </div>
     </>
