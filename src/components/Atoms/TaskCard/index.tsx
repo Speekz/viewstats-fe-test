@@ -7,9 +7,11 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 interface TaskCardProps {
   task: ITaskCard;
+  onDelete: () => void;
+  onUpdate: () => void;
 }
 
-const TaskCard: FC<TaskCardProps> = ({ task }) => {
+const TaskCard: FC<TaskCardProps> = ({ task, onDelete, onUpdate }) => {
   return (
     <div className="overflow-hidden w-4/5 rounded-lg bg-gray-800 px-4 py-5 shadow sm:p-6">
       <div className="grid grid-cols-9">
@@ -50,8 +52,12 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
           ))}
         </div>
         <div className="flex gap-2 justify-center items-center col-span-2">
-          <PencilSquareIcon className="text-white h-8" />
-          <TrashIcon className="text-white h-8" />
+          <div className="cursor-pointer" onClick={onUpdate}>
+            <PencilSquareIcon className="text-white h-8" />
+          </div>
+          <div className="cursor-pointer" onClick={onDelete}>
+            <TrashIcon className="text-white h-8" />
+          </div>
         </div>
       </div>
     </div>
