@@ -67,12 +67,7 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
           ))}
         </div>
         <div className="flex gap-2 justify-center items-center col-span-2">
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              setShowCreateTask(true);
-            }}
-          >
+          <div className="cursor-pointer" onClick={() => {}}>
             <PencilSquareIcon className="text-white h-8" />
           </div>
           <div

@@ -12,6 +12,8 @@ export type TModalContext = {
   setShowDeleteTask: Dispatch<SetStateAction<boolean>>;
   showCreateTask: boolean;
   setShowCreateTask: Dispatch<SetStateAction<boolean>>;
+  showUpdateTask: boolean;
+  setShowUpdateTask: Dispatch<SetStateAction<boolean>>;
 };
 
 const initModalContext = {
@@ -19,6 +21,8 @@ const initModalContext = {
   setShowDeleteTask: () => {},
   showCreateTask: false,
   setShowCreateTask: () => {},
+  showUpdateTask: false,
+  setShowUpdateTask: () => {},
 };
 
 export const ModalContext = createContext<TModalContext>(initModalContext);
@@ -26,6 +30,7 @@ export const ModalContext = createContext<TModalContext>(initModalContext);
 export const ModalContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [showDeleteTask, setShowDeleteTask] = useState<boolean>(false);
   const [showCreateTask, setShowCreateTask] = useState<boolean>(false);
+  const [showUpdateTask, setShowUpdateTask] = useState<boolean>(false);
 
   return (
     <ModalContext.Provider
@@ -34,6 +39,8 @@ export const ModalContextProvider: FC<PropsWithChildren> = ({ children }) => {
         setShowDeleteTask,
         showCreateTask,
         setShowCreateTask,
+        showUpdateTask,
+        setShowUpdateTask,
       }}
     >
       {children}

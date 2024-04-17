@@ -4,7 +4,7 @@ import { Fragment, useContext, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModalContext } from "src/hooks/ModalContext";
 
-const CreateTaskModal = () => {
+const UpdateTaskModal = () => {
   const { showCreateTask, setShowCreateTask } = useContext(ModalContext);
 
   const handleCreateTask = () => {
@@ -100,4 +100,4 @@ const CreateTaskModal = () => {
   );
 };
 
-export default CreateTaskModal;
+export default UpdateTaskModal;

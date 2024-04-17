@@ -6,7 +6,7 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
 import { ModalContext } from "src/hooks/ModalContext";
 
-const deleteTaskModal = () => {
+const DeleteTaskModal = () => {
   const { showDeleteTask, setShowDeleteTask } = useContext(ModalContext);
 
   const cancelButtonRef = useRef(null);
@@ -95,4 +95,4 @@ const deleteTaskModal = () => {
   );
 };
 
-export default deleteTaskModal;
+export default DeleteTaskModal;
