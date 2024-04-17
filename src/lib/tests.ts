@@ -4,6 +4,7 @@ export const taskList = [
   {
     id: 1,
     title: "Take the dog out",
+    description: "Just take the dog out",
     priority: ETaskPriority.Low,
     dueDate: 1713330120,
     tags: [1],
@@ -11,6 +12,8 @@ export const taskList = [
   {
     id: 2,
     title: "Do homework",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     priority: ETaskPriority.High,
     dueDate: 1713330152,
     tags: [1, 2],
@@ -18,6 +21,7 @@ export const taskList = [
   {
     id: 3,
     title: "Play VideoGames",
+    description: "Get diamond in lol",
     priority: ETaskPriority.Medium,
     dueDate: 1713330172,
     tags: [3],

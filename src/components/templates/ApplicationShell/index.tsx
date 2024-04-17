@@ -7,7 +7,11 @@ import classNames from "classnames";
 import Link from "next/link";
 import { navigation } from "./models/ApplicationShell.constants";
 
-const ApplicationShell: FC<PropsWithChildren> = ({ children }) => {
+interface ApplicationShellProps extends PropsWithChildren {
+  title: string;
+}
+
+const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -173,7 +177,7 @@ const ApplicationShell: FC<PropsWithChildren> = ({ children }) => {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 text-sm font-semibold leading-6 text-white">
-            Dashboard
+            {title}
           </div>
           <a href="#">
             <span className="sr-only">Your profile</span>

@@ -10,7 +10,7 @@ export const metadata = {
 
 const Dashboard = () => {
   return (
-    <ApplicationShell>
+    <ApplicationShell title="Dashboard">
       <div>
         <h3 className="text-base font-semibold leading-6 text-gray-900">
           Last 30 days
