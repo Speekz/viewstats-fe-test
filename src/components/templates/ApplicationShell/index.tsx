@@ -10,6 +10,7 @@ import { navigation } from "./models/ApplicationShell.constants";
 import DeleteTaskModal from "../../Molecules/Modal/deleteTask";
 import CreateTaskModal from "../../Molecules/Modal/createTask";
 import { ModalContextProvider } from "src/hooks/ModalContext";
+import FloattingButton from "src/components/Atoms/Button/FloattingButton";
 
 interface ApplicationShellProps extends PropsWithChildren {
   title: string;
@@ -203,6 +204,7 @@ const ApplicationShell: FC<ApplicationShellProps> = ({ children, title }) => {
             <div className="px-4 sm:px-6 lg:px-8">{children}</div>
             <DeleteTaskModal />
             <CreateTaskModal />
+            <FloattingButton />
           </main>
         </div>
       </ModalContextProvider>
