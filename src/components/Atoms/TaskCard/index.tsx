@@ -1,11 +1,12 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import type { ITaskCard } from "./models/TaksCard.interface";
 import { ETaskPriority } from "../StatsCard/models/StatsCard.interface";
 import classNames from "classnames";
 import Chip from "../Chip";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { ModalContext } from "src/hooks/ModalContext";
 
 interface TaskCardProps {
   task: ITaskCard;
@@ -19,6 +20,13 @@ interface TaskCardProps {
  */
 
 const TaskCard: FC<TaskCardProps> = ({ task }) => {
+  const {
+    showDeleteTask,
+    setShowDeleteTask,
+    showCreateTask,
+    setShowCreateTask,
+  } = useContext(ModalContext);
+
   return (
     <div className="overflow-hidden w-4/5 rounded-lg bg-gray-800 px-4 py-5 shadow sm:p-6">
       <div className="grid grid-cols-9">
@@ -59,10 +67,20 @@ const TaskCard: FC<TaskCardProps> = ({ task }) => {
           ))}
         </div>
         <div className="flex gap-2 justify-center items-center col-span-2">
-          <div className="cursor-pointer" onClick={() => {}}>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              setShowCreateTask(true);
+            }}
+          >
             <PencilSquareIcon className="text-white h-8" />
           </div>
-          <div className="cursor-pointer" onClick={() => {}}>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              setShowDeleteTask(true);
+            }}
+          >
             <TrashIcon className="text-white h-8" />
           </div>
         </div>

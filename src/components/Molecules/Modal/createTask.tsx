@@ -1,23 +1,25 @@
 "use client";
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useContext, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { ModalContext } from "src/hooks/ModalContext";
 
 const createTaskModal = () => {
-  const [open, setOpen] = useState(true);
+  const { showCreateTask, setShowCreateTask } = useContext(ModalContext);
+
   const handleCreateTask = () => {
-    setOpen(false);
+    setShowCreateTask(false);
   };
 
   const cancelButtonRef = useRef(null);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={showCreateTask} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={setOpen}
+        onClose={setShowCreateTask}
       >
         <Transition.Child
           as={Fragment}
@@ -83,7 +85,7 @@ const createTaskModal = () => {
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-800 sm:col-start-1 sm:mt-0"
-                    onClick={() => setOpen(false)}
+                    onClick={() => setShowCreateTask(false)}
                     ref={cancelButtonRef}
                   >
                     Cancel

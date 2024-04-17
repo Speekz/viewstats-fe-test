@@ -1,26 +1,28 @@
 "use client";
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useContext, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
+import { ModalContext } from "src/hooks/ModalContext";
 
 const deleteTaskModal = () => {
-  const [open, setOpen] = useState(true);
+  const { showDeleteTask, setShowDeleteTask } = useContext(ModalContext);
+
   const cancelButtonRef = useRef(null);
 
   const handleDeleteTask = () => {
     toast.success("Task deleted");
-    setOpen(false);
+    setShowDeleteTask(false);
   };
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={showDeleteTask} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
         initialFocus={cancelButtonRef}
-        onClose={setOpen}
+        onClose={setShowDeleteTask}
       >
         <Transition.Child
           as={Fragment}
@@ -78,7 +80,7 @@ const deleteTaskModal = () => {
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-800 sm:mt-0 sm:w-auto"
-                    onClick={() => setOpen(false)}
+                    onClick={() => setShowDeleteTask(false)}
                     ref={cancelButtonRef}
                   >
                     Cancel
