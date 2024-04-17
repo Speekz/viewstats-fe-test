@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import Link from "next/link";
 import { navigation } from "./models/ApplicationShell.constants";
-import Modal from "../../Atoms/Modal/deleteTask";
+import Modal from "../../Molecules/Modal/deleteTask";
 
 interface ApplicationShellProps extends PropsWithChildren {
   title: string;
