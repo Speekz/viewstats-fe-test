@@ -1,4 +1,5 @@
 import Providers from "src/providers";
+import "../styles/global.css";
 
 export default function RootLayout({
   children,
@@ -6,8 +7,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html className="h-full bg-gray-900">
+      <body className="h-full">
         <Providers>{children}</Providers>
       </body>
     </html>
